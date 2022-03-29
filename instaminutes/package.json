@@ -1,0 +1,13 @@
+{
+  "name": "instaminutes",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type":"module",
+  "license": "MIT",
+  "scripts": {
+    "start": "node insta.js"
+  },
+  "dependencies": {
+    "node-schedule": "^2.1.0"
+  }
+}

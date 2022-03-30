@@ -22,7 +22,7 @@ fs.readFile("data.json", "utf8", (err, jsonString) => {
             const mjob= schedule.scheduleJob(mydate, async () => {
                 console.log("-----------------------------------------------------")
                 console.log("Event is scheduled at => ",mydate)
-                rev(textdata)
+                rev(textdata) //calling function to reverse text 
                 mjob.cancel()
             });  
         }
@@ -31,7 +31,7 @@ fs.readFile("data.json", "utf8", (err, jsonString) => {
             newtext = [...newtext].reverse().join("");
             setTimeout(() => {
                 console.log(`After sleeping for ${length} seconds `)
-                console.log("returning text : ", newtext)
+                console.log("returning text : ", newtext) //Displaying the reversed text on console...
                 console.log("-----------------------------------------------------")
             }, length * 1000)
         }

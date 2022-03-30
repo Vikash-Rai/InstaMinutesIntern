@@ -13,7 +13,7 @@ fs.readFile("data.json", "utf8", (err, jsonString) => {
     }
 ////////////////////////////////////////CODE BLOCK////////////////////////////////////////////////////////////////////
     try {
-      
+
         const myevent = JSON.parse(jsonString);
         const length = myevent.events.length;
         for(var i=0;i<length;i++){
@@ -21,9 +21,8 @@ fs.readFile("data.json", "utf8", (err, jsonString) => {
             const textdata = myevent.events[i].text
             const mjob= schedule.scheduleJob(mydate, async () => {
                 console.log(textdata,new Date())
-                rev(textdata)
+                rev(textdata)//
                 mjob.cancel()
-              
             });  
         }
         function rev(newtext) {

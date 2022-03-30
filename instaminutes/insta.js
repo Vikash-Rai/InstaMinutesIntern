@@ -20,8 +20,9 @@ fs.readFile("data.json", "utf8", (err, jsonString) => {
             const mydate = myevent.events[i].dateTime
             const textdata = myevent.events[i].text
             const mjob= schedule.scheduleJob(mydate, async () => {
-                console.log(textdata,new Date())
-                rev(textdata)//
+                console.log("-----------------------------------------------------")
+                console.log("Event is scheduled at => ",mydate)
+                rev(textdata)
                 mjob.cancel()
             });  
         }
@@ -31,6 +32,7 @@ fs.readFile("data.json", "utf8", (err, jsonString) => {
             setTimeout(() => {
                 console.log(`After sleeping for ${length} seconds `)
                 console.log("returning text : ", newtext)
+                console.log("-----------------------------------------------------")
             }, length * 1000)
         }
 

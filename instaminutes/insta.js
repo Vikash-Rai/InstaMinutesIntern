@@ -13,15 +13,26 @@ fs.readFile("data.json", "utf8", (err, jsonString) => {
     }
 ////////////////////////////////////////CODE BLOCK////////////////////////////////////////////////////////////////////
     try {
+        // function sleep(milliseconds) {
+        //     const date = Date.now();
+        //     let currentDate = null;
+        //     do {
+        //       currentDate = Date.now();
+        //     } while (currentDate - date < milliseconds);
+        //   }
 
         const myevent = JSON.parse(jsonString);
-        console.log("For each event item, hitting NodeJS scheduler API asking it to schedule the event... ")
-        myevent.events.forEach(job => {
-            schedule.scheduleJob(job.dateTime, async () => {
-                console.log("Event scheduled at =>",job.dateTime)
-                rev(job.text)
-            });
-        })
+        const length = myevent.events.length;
+        for(var i=0;i<length;i++){
+            const mydate = myevent.events[i].dateTime
+            const textdata = myevent.events[i].text
+            const mjob= schedule.scheduleJob(mydate, async () => {
+                console.log(textdata,new Date())
+                rev(textdata)
+                mjob.cancel()
+              
+            });  
+        }
         function rev(newtext) {
             var length = newtext.length
             newtext = [...newtext].reverse().join("");

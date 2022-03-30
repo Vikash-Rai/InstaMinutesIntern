@@ -13,14 +13,7 @@ fs.readFile("data.json", "utf8", (err, jsonString) => {
     }
 ////////////////////////////////////////CODE BLOCK////////////////////////////////////////////////////////////////////
     try {
-        // function sleep(milliseconds) {
-        //     const date = Date.now();
-        //     let currentDate = null;
-        //     do {
-        //       currentDate = Date.now();
-        //     } while (currentDate - date < milliseconds);
-        //   }
-
+      
         const myevent = JSON.parse(jsonString);
         const length = myevent.events.length;
         for(var i=0;i<length;i++){

@@ -22,7 +22,7 @@ fs.readFile("data.json", "utf8", (err, jsonString) => {
             const mjob= schedule.scheduleJob(mydate, async () => {
                 console.log("-----------------------------------------------------")
                 console.log("Event is scheduled at => ",mydate)
-                rev(textdata) //calling function to reverse text 
+                rev(textdata) //calling function to reverse the text and showing the text on console
                 mjob.cancel()
             });  
         }
